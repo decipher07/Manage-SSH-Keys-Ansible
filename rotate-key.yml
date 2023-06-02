@@ -30,5 +30,7 @@
       ansible.posix.authorized_key:
         user: user1
         state: present
-        key: "{{ lookup('file', 'nopc_id_ssh_rsa.pub') }}"
-
+        key: "{{ lookup('file', 'id_ssh_rsa_' + item + '.pub') }}"
+      with_items:
+        - rhel8user1
+        - rhel8user2
