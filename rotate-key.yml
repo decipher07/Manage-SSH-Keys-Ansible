@@ -4,8 +4,11 @@
   tasks:
     - name: Generate a SSH Keypair with default values
       community.crypto.openssh_keypair:
-        path: 'nopc_id_ssh_rsa'
+        path: "id_ssh_rsa_{{ item }}"
         force: true
+      with_items:
+        - rhel8user1
+        - rhel8user2
 
 # Create a key in the user in machine, then send the key to nopc@xxx and then from machine transfer it to the different users.
 - name: Rotate the SSH keys
@@ -13,8 +16,8 @@
   tasks:
     - name: Copies the public key to remote machines
       ansible.builtin.copy:
-        src: 'nopc_id_ssh_rsa'
-        dest: "/home/{{ item }}/.ssh/nopc_id_ssh_rsa"
+        src: 'id_ssh_rsa_{{ item }}'
+        dest: "/home/{{ item }}/.ssh/id_ssh_rsa_{{ item }}"
         mode: "0600"
         owner: "{{ item }}"
         force: true
