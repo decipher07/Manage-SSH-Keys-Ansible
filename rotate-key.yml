@@ -31,7 +31,7 @@
   tasks:
     - name: Copy the public key to the destination vm
       ansible.posix.authorized_key:
-        user: user1
+        user: "{{ hostvars[inventory_hostname]['ansible_user'] }}"
         state: present
         key: "{{ lookup('file', 'id_ssh_rsa_' + item + '.pub') }}"
       with_items:
