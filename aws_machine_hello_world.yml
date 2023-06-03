@@ -1,6 +1,6 @@
 # Create a key in the dejain user in machine, then send the dejain key to nopc@xxx and then from dejain's machine transfer it to the different users.
 - name: Rotate the SSH keys
-  hosts: aws_machines
+  hosts: aws_ec2
   tasks:
   - name: Hello Message
     debug:
