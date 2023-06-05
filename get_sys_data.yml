@@ -1,7 +1,7 @@
 ---
 # Playbook to rotate the ansible keys for the  
 - name: Playbook to get the system usage for a particular instance.
-  hosts: localhost
+  hosts: aws_ec2
   become: true
   tasks:
     - name: Download the sysstat package
