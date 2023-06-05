@@ -14,7 +14,6 @@
         src: 'monitor.sh'
         dest: 'monitor.sh'
         mode: u+x
-        remote_src: true
 
     - name: Change the mode for a particular file
       ansible.builtin.file:
