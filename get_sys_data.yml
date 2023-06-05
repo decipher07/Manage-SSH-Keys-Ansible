@@ -30,4 +30,4 @@
 
     - name: Output the file 
       ansible.builtin.debug:
-        msg: "{{ file_contents }}"  
+        msg: "{{ file_contents.stdout }}"  
