@@ -9,6 +9,13 @@
         name: sysstat
         state: present
 
+    - name: Copy the file to the remote server
+      ansible.builtin.copy:
+        src: 'monitor.sh'
+        dest: 'monitor.sh'
+        mode: u+x
+        remote_src: true
+
     - name: Change the mode for a particular file
       ansible.builtin.file:
         path: 'monitor.sh'
